@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Franco Catena Dot Files
 
 These are configuration files to set up a system the way I like it =)
@@ -20,3 +21,7 @@ rake install
 ```
 
 After installing, open a new terminal window to see the effects (in some cases you must close all of your active sessions).
+=======
+dotfiles
+========
+>>>>>>> 2f26c4d6302cc0eca65e35f3b690b311f098084c
