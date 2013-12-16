@@ -44,9 +44,24 @@ if !exists('g:fugitive_git_executable')
   let g:fugitive_git_executable='LC_ALL=en_US git'
 endif
 
+colorscheme gruvbox
 set t_Co=256
 set background=dark
-colorscheme solarized
+
+map <F5> :call ToggleBg()<CR>
+function! ToggleBg()
+    if &background == 'dark'
+        set bg=light
+    else
+        set bg=dark
+    endif
+
+    colo gruvbox
+endfunc
+"configure Airline
+let g:airline#extensions#tabline#enabled = 1
+set laststatus=2
+let g:airline_powerline_fonts = 1
 
 set ruler
 set relativenumber
@@ -96,9 +111,6 @@ set ignorecase smartcase
 
 set showcmd
 
-" Highlight trailing whitespace
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
 
 " Status line
 set showtabline=2
@@ -112,10 +124,10 @@ set timeoutlen=1000
 set ttimeoutlen=100
 
 " No arrow keys
-map <Left> <Nop>
-map <Right> <Nop>
-map <Up> <Nop>
-map <Down> <Nop>
+"map <Left> <Nop>
+"map <Right> <Nop>
+"map <Up> <Nop>
+"map <Down> <Nop>
 
 " Disable K looking stuff up
 map K <Nop>
@@ -136,10 +148,6 @@ nnoremap <Leader>n :set relativenumber!<CR>
 nnoremap <Leader><Leader> :nohlsearch<CR>
 nnoremap <Leader><CR> o<Esc>
 nnoremap <Leader>b <C-^>
-
-" Switch background
-nnoremap _bl :set background=light<CR>
-nnoremap _bd :set background=dark<CR>
 
 " Switch colorscheme
 nnoremap _c :colorscheme 
@@ -193,7 +201,7 @@ nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gl :Glog<CR>
 
 " CTags shorcuts
-nnoremap <Right> <C-]>
+"nnoremap <Right> <C-]>
 
 " Invisibles characters setup
 nmap <Leader>l :set list!<CR>
